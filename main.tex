@@ -1,1 +1,47 @@
 
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+
+\usepackage{amsfonts,amsmath,amssymb}
+\title{Exos de Colles HX4}
+\author{Classe de MP2I LLG.}
+\date{January 2026}
+\newcounter{exo}
+\newcommand{\beginexo}[2][]{
+  \ifstrequal{#1}{cours}{
+    \def\exocolor{brown}
+    \def\exotitle{Question de cours}
+  }{
+    \refstepcounter{exo}
+    \def\exocolor{black}
+    \def\exotitle{Exercice \theexo}}
+
+  \begin{tcolorbox}[
+    colback=\exocolor!5,
+    colframe=\exocolor,
+    title=\exotitle,
+    fonttitle=\bfseries,
+    boxrule=0.8pt,
+    sharp corners
+  ]
+  \textit{#2}
+  \end{tcolorbox}
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Le fonctionnement est le suivant : vous utilisez la commande beginexo[flag(optional)]\{Enonce de l'exercice\} pour ajouter un exercice. Le code couleur est simple : marron pour une question de cours et noir pour un exercice. Pour une question de cours mettre flag à cours. Have fun et bon exo solving. J'ai perdu.
+\section{Exercices}
+\beginexo[cours]{Enoncer et prouver le critère de d'Alembert pour les suites réelles.}
+\beginexo{Soit $(A_n)$ une suite d'ouverts denses de $\mathbb{R}$. Montrer que $\cap_{n\in\mathbb{N} }A_n$ est dense dans $\mathbb{R}$.}
+\beginexo{Soit $(x_n)_{n\in\mathbb{N}} \in \mathbb{R}^{\mathbb{N}}$, on pose pour tout $n\in \mathbb{N}$ : $y_n=x_{n-1}+2x_n$. \newline Montrer que $(x_n)$ converge $\iff (y_n)$ converge.}
+
+
+\end{document}
