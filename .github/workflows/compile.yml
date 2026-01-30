@@ -1,0 +1,19 @@
+name: LaTeX Compile Bot
+on: [push] # This means "Run whenever I upload code"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex # Make sure this matches your filename!
+
+      - name: Save the PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: Exercise-Sheet
+          path: main.pdf
